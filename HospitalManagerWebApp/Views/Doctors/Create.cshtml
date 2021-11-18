@@ -1,0 +1,40 @@
+﻿@model HospitalManagerWebApp.Models.Doctor
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="text-center">
+    <h1 class="display-4 font-text">Add New Doctor</h1>
+</div>
+<hr />
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="DepartmentID" class="control-label"></label>
+                <select asp-for="DepartmentID" class="form-control" asp-items="ViewBag.DepartmentID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="DoctorName" class="control-label"></label>
+                <input asp-for="DoctorName" class="form-control" />
+                <span asp-validation-for="DoctorName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FileUpload.FormFile" class="control-label"></label>
+                <input asp-for="FileUpload.FormFile" type="file" class="form-control">
+                <span asp-validation-for="FileUpload.FormFile" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-dark btn-block"><i class="fa fa-paper-plane"></i> Save Doctor Details</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-2"></div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

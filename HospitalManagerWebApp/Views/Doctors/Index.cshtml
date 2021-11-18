@@ -1,0 +1,33 @@
+﻿@model IEnumerable<HospitalManagerWebApp.Models.Doctor>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="text-center">
+    <h1 class="display-4 font-text">All Doctors <a asp-action="Create" class="btn btn-dark">Add New Doctor</a></h1>
+</div>
+<hr />
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4  mb-3">
+            <div class="card border border-dark col-md-12">
+                <img class="card-img-top text-center" style="height:200px;width:200px;border-radius:200px;margin:0 auto" src="~/photos/@item.DoctorID@item.ExtName"
+                     alt="Employee Image">
+                <div class="card-body text-center">
+                    <h5 class="card-title">@item.DoctorName (@item.Department.DepartmentName)</h5>
+                    <p class="card-text">@item.UserName</p>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-md-6 text-center">
+                        <a asp-action="Edit" class="btn btn-dark btn-block" asp-route-id="@item.DoctorID"><i class="fa fa-edit"></i> Edit</a>
+                    </div>
+                    <div class="col-md-6 text-center">
+                        <a asp-action="Delete" class="btn btn-dark btn-block" asp-route-id="@item.DoctorID"><i class="fa fa-trash"></i> Delete</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

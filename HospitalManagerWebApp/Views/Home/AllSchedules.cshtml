@@ -1,0 +1,21 @@
+﻿@model IEnumerable<HospitalManagerWebApp.Models.Schedule>
+
+@{
+    ViewData["Title"] = "AllSchedules";
+}
+<div class="text-center">
+    <h1 class="display-4 font-text">All Doctor Schedules</h1>
+</div>
+<hr /><div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4 mb-3">
+            <div class="card-body border border-dark text-center col-md-12 mb-2">
+                <h4 class="card-title">@item.Doctor.DoctorName</h4>
+                <p class="card-text">@item.OPDName</p>
+                <p class="card-text">@item.Location</p>
+                <p class="card-text">@item.OPDDays</p>
+            </div>
+        </div>
+    }
+</div>

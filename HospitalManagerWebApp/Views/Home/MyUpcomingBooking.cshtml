@@ -1,0 +1,42 @@
+﻿@model IEnumerable<HospitalManagerWebApp.Models.Booking>
+
+@{
+    ViewData["Title"] = "MyUpcomingBooking";
+}
+
+<div class="text-center">
+    <h1 class="display-4 font-text">@ViewData["DoctorName"] Upcoming Bookings <br />
+    (@ViewData["DepartmentName"])</h1>
+</div>
+<hr />
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BookingDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ContactNo)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BookingDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ContactNo)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,31 @@
+﻿@model HospitalManagerWebApp.Models.Doctor
+
+@{
+    ViewData["Title"] = "Delete";
+}
+<div class="text-center">
+    <h1 class="display-4 font-text">Delete Doctor Details</h1>
+</div>
+<hr />
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8  mb-3">
+        <div class="card shadow col-md-12">
+            <img class="card-img-top text-center" style="height:200px;width:200px;border-radius:200px;margin:0 auto" src="~/photos/@Model.DoctorID@Model.ExtName"
+                 alt="Employee Image">
+            <div class="card-body">
+                <h5 class="card-title">@Model.DoctorName <br /> (@Model.Department.DepartmentName)</h5>
+                <p class="card-text">@Model.UserName</p>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center mb-3">
+                    <form asp-action="Delete">
+                        <input type="hidden" asp-for="DoctorID" />
+                        <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i> Confirm Delete</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-2"></div>
+</div>

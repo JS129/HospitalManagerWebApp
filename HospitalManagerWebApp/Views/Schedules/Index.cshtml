@@ -1,0 +1,30 @@
+﻿@model IEnumerable<HospitalManagerWebApp.Models.Schedule>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="text-center">
+    <h1 class="display-4 font-text">All Doctor Schedule <a asp-action="Create" class="btn btn-dark">Add New Schedule</a></h1>
+</div>
+<hr /><div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4 mb-3">
+            <div class="card-body border border-dark text-center col-md-12 mb-2">
+                <h4 class="card-title">@item.Doctor.DoctorName</h4>
+                <p class="card-text">@item.OPDName</p>
+                <p class="card-text">@item.Location</p>
+                <p class="card-text">@item.OPDDays</p>
+                <div class="row">
+                    <div class="col-md-6 text-center">
+                        <a asp-action="Edit" class="btn btn-dark btn-block" asp-route-id="@item.ScheduleID"><i class="fa fa-edit"></i> Edit</a>
+                    </div>
+                    <div class="col-md-6 text-center">
+                        <a asp-action="Delete" class="btn btn-dark btn-block" asp-route-id="@item.ScheduleID"><i class="fa fa-trash"></i> Delete</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

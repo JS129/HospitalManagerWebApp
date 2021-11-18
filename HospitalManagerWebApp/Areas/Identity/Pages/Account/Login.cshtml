@@ -1,0 +1,48 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Log in";
+}
+<section style="width:50%;margin:0 auto;height:500px;display:flex;justify-content:center;align-items:center;">
+    <div class="row shadow border-1  bg-light">
+        <div class="col-md-12">
+            <div class="text-center">
+                <h1 class="display-4 font-text"><i class="fa fa-hospital-o"> Manager</i></h1>
+                <p>Log In</p>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <section>
+                <form id="account" method="post" class="mb-3">
+                   <div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Input.Email" class="text-dark"></label>
+                        <input asp-for="Input.Email" class="form-control" />
+                        <span asp-validation-for="Input.Email" class="text-danger" ></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Input.Password" class="text-dark"></label>
+                        <input asp-for="Input.Password" class="form-control" />
+                        <span asp-validation-for="Input.Password" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <a class="nav-link text-dark font-weight-bold" asp-area="Identity" asp-page="/Account/Register"><i class="fa fa-user-plus"></i> Register as Patient</a>
+                    </div>
+                    <div class="form-group text-center">
+                        <button type="submit" class="btn btn-dark"><i class="fa fa-sign-in"></i> Log in</button>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+<style>
+    body {
+        background: #DCDCDC;
+    }
+</style>

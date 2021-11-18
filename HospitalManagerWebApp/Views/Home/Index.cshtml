@@ -1,0 +1,31 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+@{
+    ViewData["Title"] = "Home Page";
+}
+@if (SignInManager.IsSignedIn(User))
+{
+    @if (User.IsInRole("clerk"))
+    {
+        <div class="text-center">
+            <h1 class="display-4 font-text">Welcome Clerk!!!</h1>
+            <p>Manage All Operation of Hospital.</p>
+        </div>
+
+    }
+    else if (User.IsInRole("doctor"))
+    {
+        <div class="text-center">
+            <h1 class="display-4">Welcome Doctor</h1>
+            <p>View Your Bookings.</p>
+        </div>
+    }
+    else
+    {
+        <div class="text-center">
+            <h1 class="display-4">Welcome Patient</h1>
+            <p>Book Your Visit as well as view the history.</p>
+        </div>
+    }
+}
